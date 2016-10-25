@@ -7,7 +7,7 @@
 package com.shevtsod;
 
 /**
- * class SessionManager
+ * <h1>class SessionManager</h1>
  *
  * Manages a user's session by sending messages between different objects and
  * updating the UI and application state according to the user's actions.
