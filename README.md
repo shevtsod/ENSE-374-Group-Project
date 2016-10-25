@@ -18,7 +18,14 @@ Click `Finish` to import the files as a project.
 Press `Ctrl + F11` to build and run, or `F11` to build and debug.
 
 ###IntelliJ IDEA 2016.2
-TBA
+To compile, go to  
+>File -> New -> Project
+
+Make sure that `Java` is selected in the list on the left side of the window. Click `Next`, `Next`, and name the project.  
+Then, go to 
+>File -> Open
+
+Locate and import the `src` folder. You can now press `Shift + F10` to run or `Shift + F9` to debug.
 
 ###NetBeans IDE 8.2
 TBA
