@@ -17,10 +17,10 @@ Click `Finish` to import the files as a project.
 
 Press `Ctrl + F11` to build and run, or `F11` to build and debug.
 
-###IntelliJ IDEA
+###IntelliJ IDEA 2016.2
 TBA
 
-###NetBeans IDE
+###NetBeans IDE 8.2
 TBA
 
 ##Details
