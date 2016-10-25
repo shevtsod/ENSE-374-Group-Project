@@ -1,4 +1,4 @@
-/**
+/*
  * FILENAME:        User.java
  * COURSE:          ENSE 374
  * AUTHOR:          Daniel Shevtsov

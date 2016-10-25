@@ -1,4 +1,4 @@
-/**
+/*
  * FILENAME:        Main.java
  * COURSE:          ENSE 374
  * AUTHOR:          Group 9
