@@ -4,7 +4,7 @@ My solutions to labs in ENSE 374 - Software Project Management.
 TBA
 
 ##Compilation
-####Eclipse IDE for Java Neon.1
+###Eclipse IDE for Java Neon.1
 
 To compile, go to
 >File -> Open Projects from File System
@@ -14,7 +14,7 @@ Click `Finish` to import the files as a project.
 
 Press `Ctrl + F11` to build and run, or `F11` to build and debug.
 
-####IntelliJ IDEA
+###IntelliJ IDEA
 
 TBA
 
