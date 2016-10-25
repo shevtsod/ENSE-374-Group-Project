@@ -1,5 +1,6 @@
 # ENSE 374 Group Project
-ENSE 374 group project by group 9.  
+ENSE 374 group project by group 9.
+
 Under the theme of eHealth, group 9 created a command-line based application for
 tracking alerts and notifications, and managing doctor appointments. The application is by no means intended for real-world use and is just a simplified model for the purpose of studying agile development using the Scrum methodology, OOP principles, and collaboration with multiple team members.
 
