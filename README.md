@@ -45,4 +45,5 @@ project files in the IDE. Press `F6` to run or `Ctrl + F5` to debug.
 
 TBA  
 
+---
 > Written with [StackEdit](https://stackedit.io/).
