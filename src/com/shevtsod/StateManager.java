@@ -15,5 +15,29 @@ package com.shevtsod;
  * @author          Daniel Shevtsov
  */
 public class StateManager {
-    //TODO: Add StateManager
+    private StateType currentState;
+
+    /**
+     * Default constructor. Initializes an object of StateManager.
+     */
+    StateManager() {
+        //The default state for this application is the welcome screen.
+        currentState = StateType.Welcome;
+    }
+
+    /**
+     * Sets the current state of this state manager.
+     * @param s New StateType that this StateManager will hold.
+     */
+    public void setState(StateType s) {
+        currentState = s;
+    }
+
+    /**
+     * Gets the current state of this state manager.
+     * @return current StateType of this StateManager.
+     */
+    public StateType getState() {
+        return currentState;
+    }
 }

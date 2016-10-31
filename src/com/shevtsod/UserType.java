@@ -14,5 +14,6 @@ package com.shevtsod;
  * @author          Daniel Shevtsov
  */
 public enum UserType {
-    //TODO: Add UserType
+    Patient,
+    Doctor,
 }

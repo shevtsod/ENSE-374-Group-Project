@@ -14,5 +14,10 @@ package com.shevtsod;
  * @author          Daniel Shevtsov
  */
 public enum StateType {
-    //TODO: Add StateType
+    Welcome,
+    Backup,
+    Login,
+    Main,
+    Appointments,
+    Drugs,
 }

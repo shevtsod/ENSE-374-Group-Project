@@ -6,6 +6,8 @@
 
 package com;
 
+import com.shevtsod.SessionManager;
+
 /**
  * class Main
  *
@@ -16,7 +18,13 @@ package com;
  * @author          Group 9
  */
 public class Main {
+    /**
+     * Primary entry point of the program.
+     *
+     * @param args Arguments passed through the console (unused)
+     */
     public static void main(String[] args) {
-	//TODO: Add main() body
+        //Create object of SessionManager and pass control of the program to it.
+        SessionManager currentSession = new SessionManager();
     }
 }
