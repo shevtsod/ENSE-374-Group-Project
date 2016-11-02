@@ -1,5 +1,5 @@
 /*
- * FILENAME:        package-info.java
+ * FILENAME:        StateManager.java
  * COURSE:          ENSE 374
  * AUTHOR:          Daniel Shevtsov
  */
@@ -21,8 +21,8 @@ public class StateManager {
      * Default constructor. Initializes an object of StateManager.
      */
     StateManager() {
-        //The default state for this application is the welcome screen.
-        currentState = StateType.Welcome;
+        //The default state for this application is the login screen.
+        currentState = StateType.Login;
     }
 
     /**

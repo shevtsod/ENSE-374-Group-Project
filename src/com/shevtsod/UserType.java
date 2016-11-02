@@ -1,5 +1,5 @@
 /*
- * FILENAME:        package-info.java
+ * FILENAME:        UserType.java
  * COURSE:          ENSE 374
  * AUTHOR:          Daniel Shevtsov
  */
