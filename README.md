@@ -23,9 +23,12 @@ To compile, go to
 
 Make sure that `Java` is selected in the list on the left side of the window.
 Click `Next`, `Next`, name the project, and `Finish`.  
+
 Move the `src\ ` folder from this repository and merge it with the `src\ ` 
 directory where you created the project.  
+
 Then, open the `Project` tab on the left, and expand the root folder. 
+
 Expand `src\com\Main `. In the editor window, click the green play button beside `public class Main`. There, you can choose to either run or debug the program.
 
 ###NetBeans IDE 8.2
