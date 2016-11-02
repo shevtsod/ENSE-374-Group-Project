@@ -1,3 +1,9 @@
+/*
+ * FILENAME:        package-info.java
+ * COURSE:          ENSE 374
+ * AUTHOR:          Daniel Shevtsov
+ */
+
 /**
  * <h1>shevtsod</h1>
  * Contains implementations for the following classes:
