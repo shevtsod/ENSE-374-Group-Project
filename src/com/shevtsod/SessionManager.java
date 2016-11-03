@@ -6,6 +6,10 @@
 
 package com.shevtsod;
 
+import com.james.Doctor;
+import com.james.Patient;
+import com.james.User;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -85,7 +89,7 @@ public class SessionManager {
                 break;
             case Main:
                 System.out.println(
-                        "\nHello, User-Name-Here" //TODO: Replace with User name
+                        "\nHello, " + currentUser.getName()
                 );
                 System.out.println(
                         "***********************************************************\n" +
@@ -156,13 +160,11 @@ public class SessionManager {
             //Check that UserType matches one of the known types:
             switch(Character.toUpperCase(tempType)) {
                 case 'P':
-                    //TODO: Initialize currentUser as Patient here
-                    //currentUser = new Patient(tempName);
+                    currentUser = new Patient(tempName);
                     correctInput = true;
                     break;
                 case 'D':
-                    //TODO: Initialize currentUser as Doctor here
-                    //currentUser = new Doctor(tempName);
+                    currentUser = new Doctor(tempName);
                     correctInput = true;
                     break;
                 default:

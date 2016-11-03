@@ -1,6 +1,6 @@
-package com.shevtsod;
+package com.james;
 
-public class User {
+public class Drug {
     /*
     TEMPORARY CLASS FOR DEBUGGING STATE MANAGER
     DO NOT MODIFY THIS FILE, IT WILL BE DELETED LATER.
