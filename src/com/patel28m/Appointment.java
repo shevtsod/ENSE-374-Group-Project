@@ -1,5 +1,7 @@
 package com.patel28m;
 
+import com.james.*;
+
 import java.sql.Date;
 
 public class Appointment {

@@ -1,5 +1,7 @@
 package com.patel28m;
 
+import com.james.User;
+
 public class Notification{
     private String text;
 

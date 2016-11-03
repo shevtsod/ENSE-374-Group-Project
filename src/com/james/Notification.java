@@ -1,6 +1,6 @@
-package com.patel28m;
+package com.james;
 
-public class Patient {
+public class Notification {
     /*
     TEMPORARY CLASS FOR DEBUGGING STATE MANAGER
     DO NOT MODIFY THIS FILE, IT WILL BE DELETED LATER.
