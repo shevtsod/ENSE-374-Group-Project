@@ -6,6 +6,7 @@
 
 package com.shevtsod;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -28,9 +29,9 @@ public class SessionManager {
      */
     public SessionManager() {
         sm = new StateManager();
-        //StateManager should initialize with Login, but just in case.
+        // StateManager should initialize with Login, but just in case.
         sm.setState(StateType.Login);
-        //Move the program to perform the actions in the Welcome state.
+        // Move the program to perform the actions in the Welcome state.
         Login();
     }
 
@@ -39,6 +40,8 @@ public class SessionManager {
      * @param u The new object extending User that will use the program.
      */
     public void setCurrentUser(User u) {
+        // This method should probably be removed. There is no use for it at
+        // the moment.
         currentUser = u;
     }
 
@@ -56,7 +59,7 @@ public class SessionManager {
     private void drawInterface() {
         switch(sm.getState()) {
             case Login:
-                //ASCII text generated using http://patorjk.com/software/taag/
+                // ASCII text generated using http://patorjk.com/software/taag/
                 System.out.println(
                         "***********************************************************\n" +
                         "  __  __          _ _           _           _       \n" +
@@ -82,19 +85,23 @@ public class SessionManager {
                 break;
             case Main:
                 System.out.println(
-                        "\nHello, User Name Here" //TODO: Replace with User name
+                        "\nHello, User-Name-Here" //TODO: Replace with User name
                 );
                 System.out.println(
                         "***********************************************************\n" +
                         "YOUR ALERTS:");
                 //TODO: Print User's list of alerts here
+                //loop through elements in currentUser.getNotificationsList()
+                System.out.println("\tNONE"); //TODO: Remove this line later.
                 System.out.println(
                         "***********************************************************\n" +
                         "YOUR APPOINTMENTS:");
                 //TODO: Print User's list of appointments here
+                //loop through elements in currentUser.getAppointmentsList()
+                System.out.println("\tNONE"); //TODO: Remove this line later.
                 System.out.println(
                         "***********************************************************\n" +
-                        "SELECT AN ACTION: " +
+                        "SELECT AN ACTION:\n" +
                         "\tD\t - View list of drugs\n" +
                         "\tA\t - View list of appointments\n" +
                         "\tB\t - Backup/Restore menu\n" +
@@ -112,7 +119,7 @@ public class SessionManager {
                 break;
             case Backup:
                 //TODO: Revise output when added Backup state
-                System.out.println("Work In Progress. Press ENTER to return" +
+                System.out.print("Work In Progress. Press ENTER to return" +
                         " to main screen.");
                 break;
             default:
@@ -136,7 +143,7 @@ public class SessionManager {
         String tempName;
         char tempType;
 
-        //In Welcome, we want the user to supply their name and user type.
+        //In Login, we want the user to supply their name and user type.
         do {
             //Query user for input in format:
             //[USERNAME] [USER-TYPE]
@@ -150,12 +157,12 @@ public class SessionManager {
             switch(Character.toUpperCase(tempType)) {
                 case 'P':
                     //TODO: Initialize currentUser as Patient here
-                    //currentUser = new Patient();
+                    //currentUser = new Patient(tempName);
                     correctInput = true;
                     break;
                 case 'D':
                     //TODO: Initialize currentUser as Doctor here
-                    //currentUser = new Doctor();
+                    //currentUser = new Doctor(tempName);
                     correctInput = true;
                     break;
                 default:
@@ -218,6 +225,8 @@ public class SessionManager {
                 Backup();
                 break;
             case 'Q':
+                System.out.println("Closing program.");
+                input.close();
                 System.exit(0);
                 break;
         }
@@ -227,29 +236,38 @@ public class SessionManager {
      * Processes input for the Drugs state.
      */
     private void Drugs() {
+        // In drugs, we want to allow a user to view their drugs and add drugs.
+        //TODO: Add this state
         drawInterface();
+
+        //Scanner to capture user input to console
+        Scanner input = new Scanner(System.in);
+
+        String temp = input.nextLine();
+
+        sm.setState(StateType.Main);
+        MainState();
     }
 
     /**
      * Processes input for the Appointments state.
      */
     private void Appointments() {
-        drawInterface();
+        // In appointments, we want to allow a user to view their appointments
+        // and remove appointments. A user designated as a Doctor will also
+        // be able to add appointments.
+        //TODO: Add this state
+        Drugs();
     }
 
     /**
      * Processes input for the Backup state.
      */
     private void Backup() {
-        drawInterface();
-
-        //Scanner to capture user input to console
-        Scanner input = new Scanner(System.in);
-
+        // In Backup, we want to allow the user to choose between Backup
+        // and Restore. Backup will write user info to a file, and Restore
+        // will load data from a file into the program.
         //TODO: Add this state
-        while(input.hasNextLine()) {
-            sm.setState(StateType.Main);
-            MainState();
-        }
+        Drugs();
     }
 }
