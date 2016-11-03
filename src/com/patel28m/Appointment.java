@@ -3,8 +3,7 @@ package com.patel28m;
 import java.sql.Date;
 
 public class Appointment {
-
-    private Patient paitent;
+    private Patient patient;
     private Doctor doctor;
     private Date date;
 
@@ -19,14 +18,12 @@ public class Appointment {
 	return patient;
     }
 
-    public Patient getDoctor()
+    public Doctor getDoctor()
     {
         return doctor;
     }
 
-    public Date getDate()
-    {
+    public Date getDate() {
         return date;
     }
-
 }
