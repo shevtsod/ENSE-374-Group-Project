@@ -14,6 +14,7 @@ package com.shevtsod;
  * @author          Daniel Shevtsov
  */
 public enum UserType {
-    Patient,
+    Admin,
     Doctor,
+    Patient
 }

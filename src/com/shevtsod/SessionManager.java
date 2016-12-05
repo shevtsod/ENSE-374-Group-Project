@@ -10,7 +10,7 @@ import com.james.Doctor;
 import com.james.Patient;
 import com.james.User;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -24,8 +24,11 @@ import java.util.Scanner;
 public class SessionManager {
 
     private User currentUser;
-    private UserType currentUserType;
     private StateManager sm;
+    private List<User> userList;
+    private List<Patient> patientList;
+    private List<Doctor> doctorList;
+
 
     /**
      * Default constructor. Initializes a new SessionManager, asking the user
