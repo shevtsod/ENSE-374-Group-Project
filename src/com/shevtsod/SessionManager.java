@@ -473,8 +473,43 @@ public class SessionManager {
     private void Patients() {
         // In Patients, we want to allow a Doctor to view, add, and remove Patients by managing their
         // 'patients' List.
-        //TODO: Add this state
-        Drugs();
+        drawInterface();
+
+        //Scanner to capture user input to console
+        Scanner input = new Scanner(System.in, "UTF-8");
+        boolean correctInput = false;
+        char operation;
+
+        do {
+            //Query user for input in format:
+            //[OPERATION]
+            //Loop until correct input is given.
+            System.out.print("INPUT: ");
+            operation = input.next().charAt(0);
+            //Skip remaining input in this line
+            input.nextLine();
+
+            //Validate input
+            switch(Character.toUpperCase(operation)) {
+                //Valid operations
+                case 'A': case 'R':
+                    correctInput = true;
+                    break;
+                //Invalid operation
+                default:
+                    System.out.println("ERROR: Invalid action");
+                    break;
+            }
+        } while(!correctInput);
+
+        //TODO: Remove this temporary code
+        System.out.println("Work In Progress. Press ENTER to return" +
+                " to main screen.");
+        String temp = input.nextLine();
+
+        sm.setState(StateType.Main);
+        MainState();
+
     }
 
     /**
