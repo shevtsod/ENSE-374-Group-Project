@@ -47,6 +47,13 @@ public abstract class User {
     }
 
     /**
+     * @return The String containing the name of this User
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
      * @return The UserType of this User object
      */
     public UserType getUserType() {
@@ -81,7 +88,7 @@ public abstract class User {
      * Note: Returns null if List does not exist
      * @return The current List of Notifications
      */
-    public List getNotificationsList() {
+    public List<Notification> getNotificationsList() {
         return notifications;
     }
 
@@ -91,7 +98,7 @@ public abstract class User {
      * Note: Returns null if List does not exist
      * @return The current List of Appointments
      */
-    public List getAppointmentsList() {
+    public List<Appointment> getAppointmentsList() {
         return appointments;
     }
 
@@ -100,7 +107,7 @@ public abstract class User {
      * @param n The Notification to be removed from the List
      */
     public void removeNotification(Notification n) {
-        if(!notifications.isEmpty() || notifications.contains(n)) {
+        if(!notifications.isEmpty() && notifications.contains(n)) {
             notifications.remove(n);
             System.out.println(" - Successfully removed notification");
         } else {
@@ -113,7 +120,7 @@ public abstract class User {
      * @param a The Appointment to be removed from the List
      */
     public void removeAppointment(Appointment a) {
-        if(!appointments.isEmpty() || appointments.contains(a)) {
+        if(!appointments.isEmpty() && appointments.contains(a)) {
             appointments.remove(a);
             System.out.println(" - Successfully removed appointment");
         } else {

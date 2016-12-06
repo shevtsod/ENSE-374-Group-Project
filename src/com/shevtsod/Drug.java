@@ -24,6 +24,7 @@ public class Drug {
 
     private static int idcounter;
 
+
     /**
      * Constructor. Initializes members of this Drug object
      * @param name Name of this drug

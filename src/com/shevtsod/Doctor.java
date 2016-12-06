@@ -39,15 +39,37 @@ public class Doctor extends User {
         patients = p_list;
     }
 
+    /**
+     * Add a new Patient to the list of Patients for this Doctor object
+     * @param p The Patient to be added to the list
+     */
     public void addPatient(Patient p) {
-
+        if(patients == null)
+            System.out.println(" - ERROR: Could not add patient");
+        else
+            patients.add(p);
     }
 
-    public List getPatientsList() {
-        return null;
+    /**
+     * Get the current list of Patients for this object. Useful to search the list for a Patient
+     * and remove it using removePatient()
+     * Note: Returns null if List does not exist
+     * @return The current List of Patients
+     */
+    public List<Patient> getPatientsList() {
+        return patients;
     }
 
+    /**
+     * Remove a given Patient from this Doctor object's List of Patients
+     * @param p The Patient to be removed from the List
+     */
     public void removePatient(Patient p) {
-
+        if(!patients.isEmpty() && patients.contains(p)) {
+            patients.remove(p);
+            System.out.println(" - Successfully removed patient " + p.getName());
+        } else {
+            System.out.println(" - ERROR: Could not remove patient " + p.getName());
+        }
     }
 }

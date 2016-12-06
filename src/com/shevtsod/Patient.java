@@ -38,4 +38,38 @@ public class Patient extends User {
         drugs = d_list;
     }
 
+    /**
+     * Add a new Drug to the list of Drugs for this Patient object
+     * @param d The Drug to be added to the list
+     */
+    public void addDrug(Drug d) {
+        if(drugs == null)
+            System.out.println(" - ERROR: Could not remove drug");
+        else
+            drugs.add(d);
+    }
+
+    /**
+     * Get the current list of Drugs for this object. Useful to search the list for a Drug
+     * and remove it using removeDrug()
+     * Note: Returns null if List does not exist
+     * @return The current List of Drugs
+     */
+    public List<Drug> getDrugsList() {
+        return drugs;
+    }
+
+    /**
+     * Remove a given Drug from this Patient object's List of Drugs
+     * @param d The Drug to be removed from the List
+     */
+    public void removeDrug(Drug d) {
+        if(!drugs.isEmpty() && drugs.contains(d)) {
+            drugs.remove(d);
+            System.out.println(" - Successfully removed drug " + d.getDrugName());
+        } else {
+            System.out.println(" - ERROR: Could not remove drug " + d.getDrugName());
+        }
+    }
+
 }
