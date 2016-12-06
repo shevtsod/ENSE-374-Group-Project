@@ -8,10 +8,18 @@
  * <h1>shevtsod</h1>
  * Contains implementations for the following classes:
  * <ul>
- *      <li>SessionManager</li>
- *      <li>StateManager</li>
- *      <li>StateType</li>
- *      <li>UserType</li>
+ *     <li>Admin</li>
+ *     <li>Appointment</li>
+ *     <li>Doctor</li>
+ *     <li>Drug</li>
+ *     <li>Notification</li>
+ *     <li>Patient</li>
+ *     <li>Prescription</li>
+ *     <li>SessionManager</li>
+ *     <li>StateManager</li>
+ *     <li>StateType</li>
+ *     <li>User</li>
+ *     <li>UserType</li>
  * </ul>
  * @author Daniel Shevtsov
  */

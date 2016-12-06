@@ -24,7 +24,7 @@ public class Main {
      * @param args Arguments passed through the console (unused)
      */
     public static void main(String[] args) {
-        //Create object of SessionManager and pass control of the program to it.
+        // Create object of SessionManager and pass control of the program to it
         SessionManager currentSession = new SessionManager();
     }
 }
