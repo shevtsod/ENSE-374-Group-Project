@@ -7,6 +7,7 @@
 package com.shevtsod;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -146,15 +147,51 @@ public class SessionManager {
                 break;
 
             case Prescriptions:
-                //TODO: Revise output when added Appointments state
-                System.out.print("PRESCRIPTIONS: Work In Progress. Press ENTER to return" +
-                        " to main screen.");
+                System.out.println(
+                        "*** PRESCRIPTIONS MANAGER ***\n" +
+                        "View and remove prescriptions.\n Doctors can also assign prescriptions for their " +
+                        "patients.\n" +
+                        "***********************************************************\n" +
+                        "YOUR PRESCRIPTIONS:"
+                );
+                currentUser.printPrescriptions();
+                if(currentUser.getUserType() == UserType.Doctor) {
+                    System.out.println(
+                            "***********************************************************\n" +
+                            "YOUR PATIENTS:"
+                    );
+                    //Convert currentUser to a Doctor to invoke printPatients()
+                    Doctor docUser = (Doctor)currentUser;
+                    docUser.printPatients();
+                }
+
+                System.out.println(
+                        "***********************************************************\n" +
+                                "SELECT AN ACTION:\n" +
+                                "\tR\t - Remove a prescription"
+                );
+                if(currentUser.getUserType() == UserType.Doctor)
+                    System.out.print("\tA\t - Add a prescription\n");
+                System.out.print("\tB\t - Back to main menu\n");
                 break;
 
             case Patients:
-                //TODO: Revise output when added Appointments state
-                System.out.print("PATIENTS: Work In Progress. Press ENTER to return" +
-                        " to main screen.");
+                System.out.println(
+                        "*** PATIENTS MANAGER ***\n" +
+                        "View, add, and remove patients.\n" +
+                        "***********************************************************\n" +
+                        "YOUR PATIENTS:"
+                );
+                //Convert currentUser to a Doctor to invoke printPatients()
+                Doctor docUser = (Doctor)currentUser;
+                docUser.printPatients();
+                System.out.print(
+                        "***********************************************************\n" +
+                                "SELECT AN ACTION:\n" +
+                                "\tR\t - Remove a patient\n" +
+                                "\tA\t - Add a patient\n" +
+                                "\tB\t - Back to main menu\n"
+                );
                 break;
 
             case Admin:
@@ -180,7 +217,7 @@ public class SessionManager {
         drawInterface();
 
         //Scanner to capture user input to console
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in, "UTF-8");
         boolean correctInput = false;
         String userName;
         char userType;
@@ -239,7 +276,7 @@ public class SessionManager {
         drawInterface();
 
         //Scanner to capture user input to console
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in, "UTF-8");
         boolean correctInput = false;
         char nextState;
 
@@ -270,7 +307,7 @@ public class SessionManager {
         } while(!correctInput);
 
         //If reach here, input is correct. Move to the appropriate next state.
-        switch(nextState) {
+        switch(Character.toUpperCase(nextState)) {
             case 'D':
                 sm.setState(StateType.Drugs);
                 Drugs();
@@ -309,7 +346,7 @@ public class SessionManager {
         drawInterface();
 
         //Scanner to capture user input to console
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in, "UTF-8");
 
         String temp = input.nextLine();
 
@@ -335,8 +372,99 @@ public class SessionManager {
         // In Prescriptions, we want to allow a user to view their prescriptions
         // and remove prescriptions. A user designated as a Doctor will also
         // be able to add prescriptions.
-        //TODO: Add this state
-        Drugs();
+        drawInterface();
+
+        //Scanner to capture user input to console
+        Scanner input = new Scanner(System.in, "UTF-8");
+        boolean correctInput = false;
+        char operation;
+
+        do {
+            //Query user for input in format:
+            //[OPERATION]
+            //Loop until correct input is given.
+            System.out.print("INPUT: ");
+            operation = input.next().charAt(0);
+            //Skip remaining input in this line
+            input.nextLine();
+
+            //Validate input
+            switch(Character.toUpperCase(operation)) {
+                //Valid operations
+                case 'A': case 'R': case 'B':
+                    correctInput = true;
+                    break;
+                //Invalid operation
+                default:
+                    System.out.println("ERROR: Invalid action");
+                    break;
+            }
+        } while(!correctInput);
+
+        //TODO: Complete this part of the Prescriptions state
+        //Perform the requested action
+        switch(Character.toUpperCase(operation)) {
+            //Add a prescription
+            case 'A':
+                //Input from the user which patient they would like to add the prescription for
+                //TODO: Add user input code here
+
+                //p contains the Patient object that the doctor selected
+                //TODO: Replace this with an actual Patient selected by the doctor
+                Patient p = new Patient("default-patient", null, null, null, null);
+
+                //Capture the time when this prescription was created
+                Date dt = new Date(); //This constructor initializes the object with the current time
+
+                //Create a new drug and populate it with information from user input
+
+                //Input from the user the name of the drug
+                //TODO: Replace this with an actual name from user input
+                String name = "default-drug";
+
+                //Input from the user the refill date of the drug
+                //TODO: Replace this with an actual date from user input
+                Date rd = new Date();
+                rd.setTime(rd.getTime() + 100000); //Temporary value (current time + 100000ms)
+
+                Drug d = new Drug(name, dt, rd);
+
+                //Create a new Prescription and populate it with the relevant information
+                //The Doctor of the prescription
+
+
+                Prescription pres = new Prescription(d, p, (Doctor)currentUser, dt);
+
+                //Add this prescription to both the patient and doctor's lists of prescriptions
+                p.addDrug(d);
+                p.addPrescription(pres);
+                currentUser.addPrescription(pres);
+
+                //Return to prescription manager
+                Prescriptions();
+
+                break;
+
+            //Remove a prescription
+            case 'R':
+                //Search the list of prescriptions for one that matches the user input and remove it if
+                //it exists, otherwise print an error.
+
+                //TODO: Remove this temporary code
+                System.out.println("Work In Progress. Press ENTER to return" +
+                                " to main screen.");
+                String temp = input.nextLine();
+
+                sm.setState(StateType.Main);
+                MainState();
+                break;
+
+            //Return to main menu
+            case 'B':
+                sm.setState(StateType.Main);
+                MainState();
+                break;
+        }
     }
 
     /**

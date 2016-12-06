@@ -33,7 +33,7 @@ public class Drug {
      */
     public Drug(String name, Date pd, Date rd) {
         this.name = name;
-        id = idcounter++;
+        id = Drug.idcounter++;
         purchaseDate = pd;
         refillDate = rd;
     }

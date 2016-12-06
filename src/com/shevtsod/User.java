@@ -84,6 +84,17 @@ public abstract class User {
     }
 
     /**
+     * Add a new Prescription to the list of Prescriptions for this User object
+     * @param pr The Prescription to be added to the list
+     */
+    public void addPrescription(Prescription pr) {
+        if(prescriptions == null)
+            System.out.println(" - ERROR: Could not add prescription (" + this + ")");
+        else
+            prescriptions.add(pr);
+    }
+
+    /**
      * Get the current list of Notifications for this object. Useful to search the list for a Notification
      * and remove it using removeNotification()
      * Note: Returns null if List does not exist
@@ -101,6 +112,16 @@ public abstract class User {
      */
     public List<Appointment> getAppointmentsList() {
         return appointments;
+    }
+
+    /**
+     * Get the current list of Prescriptions for this object. Useful to search the list for a Prescription
+     * and remove it using removePrescription()
+     * Note: Returns null if List does not exist
+     * @return The current List of Prescriptions
+     */
+    public List<Prescription> getPrescriptionsList() {
+        return prescriptions;
     }
 
     /**
@@ -130,10 +151,23 @@ public abstract class User {
     }
 
     /**
+     * Remove a given Prescription from this User object's List of Prescriptions
+     * @param pr The Prescription to be removed from the List
+     */
+    public void removePrescription(Prescription pr) {
+        if(prescriptions != null && !prescriptions.isEmpty() && prescriptions.contains(pr)) {
+            prescriptions.remove(pr);
+            System.out.println(" - Successfully removed prescription");
+        } else {
+            System.out.println(" - ERROR: Could not remove prescription");
+        }
+    }
+
+    /**
      * Formats and prints the list of Notifications to the console
      */
     public void printNotifications() {
-        if(notifications == null) {
+        if(notifications == null || notifications.isEmpty()) {
             System.out.println(" - There are no notifications.");
             return;
         }
@@ -151,7 +185,7 @@ public abstract class User {
      * Formats and prints the list of Appointments to the console
      */
     public void printAppointments() {
-        if(appointments == null) {
+        if(appointments == null || appointments.isEmpty()) {
             System.out.println(" - There are no appointments.");
             return;
         }
@@ -162,6 +196,28 @@ public abstract class User {
             System.out.println(
                     " - Appointment at " + curr.getDate() + "(" + curr.getPatient()
                     + ", " + curr.getDoctor() + ")"
+            );
+        }
+    }
+
+    /**
+     * Formats and prints the list of Prescriptions to the console
+     */
+    public void printPrescriptions() {
+        if(prescriptions == null || prescriptions.isEmpty()) {
+            System.out.println(" - There are no prescriptions.");
+            return;
+        }
+
+        Iterator<Prescription> i = prescriptions.iterator();
+        int index = 1;
+        while(i.hasNext()) {
+            Prescription curr = i.next();
+            System.out.println(
+                    " " + (index++) + ". Prescription by " + curr.getDoctor().getName() + " to "
+                    + curr.getPatient().getName()
+                    + " of drug " + curr.getDrug().getDrugName() + " assigned on " +
+                    curr.getDate().toString()
             );
         }
     }

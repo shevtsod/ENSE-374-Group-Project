@@ -44,7 +44,7 @@ public class Patient extends User {
      */
     public void addDrug(Drug d) {
         if(drugs == null)
-            System.out.println(" - ERROR: Could not remove drug");
+            System.out.println(" - ERROR: Could not add drug (" + this + ")");
         else
             drugs.add(d);
     }

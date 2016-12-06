@@ -6,6 +6,7 @@
 
 package com.shevtsod;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -70,6 +71,25 @@ public class Doctor extends User {
             System.out.println(" - Successfully removed patient " + p.getName());
         } else {
             System.out.println(" - ERROR: Could not remove patient " + p.getName());
+        }
+    }
+
+    /**
+     * Formats and prints the list of Patients to the console
+     */
+    public void printPatients() {
+        if(patients == null || patients.isEmpty()) {
+            System.out.println(" - There are no patients.");
+            return;
+        }
+
+        Iterator<Patient> i = patients.iterator();
+        int index = 1;
+        while(i.hasNext()) {
+            Patient curr = i.next();
+            System.out.println(
+                    " " + (index++) + ". " + curr.getName()
+            );
         }
     }
 }
