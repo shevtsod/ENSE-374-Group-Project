@@ -64,7 +64,7 @@ public class Patient extends User {
      * @param d The Drug to be removed from the List
      */
     public void removeDrug(Drug d) {
-        if(!drugs.isEmpty() && drugs.contains(d)) {
+        if(drugs != null && !drugs.isEmpty() && drugs.contains(d)) {
             drugs.remove(d);
             System.out.println(" - Successfully removed drug " + d.getDrugName());
         } else {

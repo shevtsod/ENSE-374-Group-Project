@@ -65,7 +65,7 @@ public class Doctor extends User {
      * @param p The Patient to be removed from the List
      */
     public void removePatient(Patient p) {
-        if(!patients.isEmpty() && patients.contains(p)) {
+        if(patients != null && !patients.isEmpty() && patients.contains(p)) {
             patients.remove(p);
             System.out.println(" - Successfully removed patient " + p.getName());
         } else {

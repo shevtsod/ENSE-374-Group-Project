@@ -20,6 +20,5 @@ public enum StateType {
     Appointments,
     Prescriptions,
     Patients,
-    Backup,
     Admin
 }

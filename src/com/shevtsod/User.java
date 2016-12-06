@@ -6,6 +6,7 @@
 
 package com.shevtsod;
 
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -107,7 +108,7 @@ public abstract class User {
      * @param n The Notification to be removed from the List
      */
     public void removeNotification(Notification n) {
-        if(!notifications.isEmpty() && notifications.contains(n)) {
+        if(notifications != null && !notifications.isEmpty() && notifications.contains(n)) {
             notifications.remove(n);
             System.out.println(" - Successfully removed notification");
         } else {
@@ -120,11 +121,48 @@ public abstract class User {
      * @param a The Appointment to be removed from the List
      */
     public void removeAppointment(Appointment a) {
-        if(!appointments.isEmpty() && appointments.contains(a)) {
+        if(appointments != null && !appointments.isEmpty() && appointments.contains(a)) {
             appointments.remove(a);
             System.out.println(" - Successfully removed appointment");
         } else {
             System.out.println(" - ERROR: Could not remove appointment");
+        }
+    }
+
+    /**
+     * Formats and prints the list of Notifications to the console
+     */
+    public void printNotifications() {
+        if(notifications == null) {
+            System.out.println(" - There are no notifications.");
+            return;
+        }
+
+        Iterator<Notification> i = notifications.iterator();
+        while(i.hasNext()) {
+            Notification curr = i.next();
+            System.out.println(
+                    " - " + curr.getNotification()
+            );
+        }
+    }
+
+    /**
+     * Formats and prints the list of Appointments to the console
+     */
+    public void printAppointments() {
+        if(appointments == null) {
+            System.out.println(" - There are no appointments.");
+            return;
+        }
+
+        Iterator<Appointment> i = appointments.iterator();
+        while(i.hasNext()) {
+            Appointment curr = i.next();
+            System.out.println(
+                    " - Appointment at " + curr.getDate() + "(" + curr.getPatient()
+                    + ", " + curr.getDoctor() + ")"
+            );
         }
     }
 
